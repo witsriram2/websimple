@@ -8,13 +8,13 @@ app.get('/', function(req, res, next) {
             //if(err) throw err
             if (err) {
                 req.flash('error', err)
-                res.render('user/list', {
+                res.render('/srv/www/webapp/views/user/list', {
                     title: 'User List', 
                     data: ''
                 })
             } else {
                 // render to views/user/list.ejs template file
-                res.render('user/list', {
+                res.render('/srv/www/webapp/views/user/list', {
                     title: 'User List', 
                     data: rows
                 })
@@ -26,7 +26,7 @@ app.get('/', function(req, res, next) {
 // SHOW ADD USER FORM
 app.get('/add', function(req, res, next){    
     // render to views/user/add.ejs
-    res.render('user/add', {
+    res.render('/srv/www/webapp/views/user/add', {
         title: 'Add New User',
         name: '',
         color: '',
@@ -66,7 +66,7 @@ app.post('/add', function(req, res, next){
                     req.flash('error', err)
                     
                     // render to views/user/add.ejs
-                    res.render('user/add', {
+                    res.render('/srv/www/webapp/views/user/add', {
                         title: 'Add New User',
                         name: user.name,
                         color: user.color,
@@ -76,7 +76,7 @@ app.post('/add', function(req, res, next){
                     req.flash('success', 'Data added successfully!')
                     
                     // render to views/user/add.ejs
-                    res.render('user/add', {
+                    res.render('/srv/www/webapp/views/user/add', {
                         title: 'Add New User',
                         name: '',
                         color: '',
@@ -97,7 +97,7 @@ app.post('/add', function(req, res, next){
          * Using req.body.name 
          * because req.param('name') is deprecated
          */ 
-        res.render('user/add', { 
+        res.render('/srv/www/webapp/views/user/add', { 
             title: 'Add New User',
             name: req.body.name,
             color: req.body.color,
@@ -119,7 +119,7 @@ app.get('/edit/(:id)', function(req, res, next){
             }
             else { // if user found
                 // render to views/user/edit.ejs template file
-                res.render('user/edit', {
+                res.render('/srv/www/webapp/views/user/edit', {
                     title: 'Edit User', 
                     //data: rows[0],
                     id: rows[0].id,
@@ -164,7 +164,7 @@ app.put('/edit/(:id)', function(req, res, next) {
                     req.flash('error', err)
                     
                     // render to views/user/add.ejs
-                    res.render('user/edit', {
+                    res.render('/srv/www/webapp/views/user/edit', {
                         title: 'Edit User',
                         id: req.params.id,
                         name: req.body.name,
@@ -175,7 +175,7 @@ app.put('/edit/(:id)', function(req, res, next) {
                     req.flash('success', 'Data updated successfully!')
                     
                     // render to views/user/add.ejs
-                    res.render('user/edit', {
+                    res.render('/srv/www/webapp/views/user/edit', {
                         title: 'Edit User',
                         id: req.params.id,
                         name: req.body.name,
@@ -197,7 +197,7 @@ app.put('/edit/(:id)', function(req, res, next) {
          * Using req.body.name 
          * because req.param('name') is deprecated
          */ 
-        res.render('user/edit', { 
+        res.render('/srv/www/webapp/views/user/edit', { 
             title: 'Edit User',            
             id: req.params.id, 
             name: req.body.name,
